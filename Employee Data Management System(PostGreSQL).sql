@@ -76,6 +76,7 @@ VALUES(3,'Accounting');
 
 INSERT INTO Department
 VALUES(4,'Manager');
+
 -- Add DepartmentID column to EmployeeDemographics table
 ALTER TABLE EmployeeDemographics
 ADD COLUMN DepartmentID INT;
