@@ -37,6 +37,9 @@ Based on the employee's job title, appropriate DepartmentID values are assigned 
 Select statements retrieve the complete data from EmployeeDemographics and EmployeeSalary to review the dataset and verify updates.
 Potential Use Cases:
 
+
+--POTENTIAL USE CASE FROM THIS DATA: 
+
 Practice SQL joins (INNER JOIN, LEFT JOIN, etc.)
 Explore aggregate functions like COUNT, AVG, SUM, etc.
 Perform filtering, sorting, and grouping.
