@@ -1,75 +1,177 @@
-Objective:
-Designed a simple Employee Management System using SQL, covering key operations:
+Introduction:
+This project demonstrates the setup of a simple employee database for a fictional company. The database, named SQLTutorial, consists of three key tables: EmployeeDemographics, EmployeeSalary, and Department. These tables help capture essential employee information such as demographic details, salary information, and departmental assignments.
 
-Database creation
-Table creation & deletion
-Data insertion
-Data querying
+The purpose of this setup is to illustrate basic SQL concepts, including table creation, data insertion, altering tables, updating data, and retrieving information through queries. This structure can be used as a foundational dataset for practicing joins, aggregations, filtering, and other SQL operations.
 
-Technologies Used:
-SQL (Standard SQL syntax)
-Relational Database Concepts
+Outline:
+1. Database Creation:
+SQLTutorial database is created to store all the related employee data.
+2. EmployeeDemographics Table:
+Contains demographic information about employees:
+EmployeeID (Unique identifier for each employee)
+FirstName
+LastName
+Age
+Gender
+DepartmentID (Added later to establish department relationships)
+3. Inserting Employee Demographic Data:
+Data for 9 employees is inserted, representing a mix of departments and roles.
+4. EmployeeSalary Table:
+Contains salary and job title information:
+EmployeeID
+JobTitle
+Salary
+5. Inserting Employee Salary Data:
+Salary and job title data for 8 employees are added.
+6. Department Table:
+Contains information about the departments:
+DepartmentID (Primary Key)
+DepartmentName
+7. Inserting Department Data:
+Four departments are added: Sales, Human Resources, Accounting, Manager.
+8. Altering EmployeeDemographics Table:
+A new column DepartmentID is added to associate employees with their respective departments.
+9. Updating Department Assignments:
+Based on the employee's job title, appropriate DepartmentID values are assigned to link employees to the correct departments.
+10. Final Data Review:
+Select statements retrieve the complete data from EmployeeDemographics and EmployeeSalary to review the dataset and verify updates.
+Potential Use Cases:
 
--- Step 1: Create Database
-CREATE DATABASE SQLTutorial;
+Practice SQL joins (INNER JOIN, LEFT JOIN, etc.)
+Explore aggregate functions like COUNT, AVG, SUM, etc.
+Perform filtering, sorting, and grouping.
+Demonstrate data normalization concepts.
+Build reporting dashboards using tools like Power BI or Tableau based on this dataset.
 
--- Step 2: Create EmployeeDemographics Table
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+create database SQLTutorial
+
 CREATE TABLE EmployeeDemographics
 (EmployeeID int,
-FirstName varchar(50),
-LastName varchar(50),
-Age int,
-Gender varchar(50)
-)
+ FirstName varchar(50),
+ LastName varchar(50), 
+ Age int, 
+ Gender varchar(50)
+ )
+ 
+  SELECT * FROM EmployeeDemographics
+  
+ -- Insert Data into EmployeeDemographics table
 
--- Step 3: Create EmployeeSalary Table
+   INSERT INTO EmployeeDemographics 
+  (EmployeeID,FirstName, LastName,Age,Gender) values (1001,'Jim','Halpert',40,'Male');
+   INSERT INTO EmployeeDemographics 
+  (EmployeeID,FirstName, LastName,Age,Gender) values (1002,'Pam','Beasely',30,'Female');
+   INSERT INTO EmployeeDemographics 
+  (EmployeeID,FirstName, LastName,Age,Gender) values (1003,'Dwight','Schrute',29,'Male');
+   INSERT INTO EmployeeDemographics 
+  (EmployeeID,FirstName, LastName,Age,Gender) values (1004,'Angela','Martin',31,'Female');
+   INSERT INTO EmployeeDemographics 
+  (EmployeeID,FirstName, LastName,Age,Gender) values (1005,'Toby','Flenderson',32,'Male');
+   INSERT INTO EmployeeDemographics 
+  (EmployeeID,FirstName, LastName,Age,Gender) values (1006,'Michael','Scott',35,'Male');
+   INSERT INTO EmployeeDemographics 
+  (EmployeeID,FirstName, LastName,Age,Gender) values (1007,'Meredith','Palmer',32,'Female');
+   INSERT INTO EmployeeDemographics 
+  (EmployeeID,FirstName, LastName,Age,Gender) values (1008,'Stanley','Hudson',38,'Male');
+   INSERT INTO EmployeeDemographics 
+  (EmployeeID,FirstName, LastName,Age,Gender) values (1009,'Kevin','Malone',31,'Male');
+
+select * from EmployeeSalary
+
 CREATE TABLE EmployeeSalary
-(EmployeeID int,
-Jobtitle varchar(50),
-Salary int)
+(Employeeid int,
+ jobtitle varchar(50), 
+ Salary int) 
 
--- Step 4: Insert Data into EmployeeDemographics
-INSERT INTO EmployeeDemographics
-(EmployeeID,FirstName, LastName,Age,Gender) values (1001,'Jim','Halpert',40,'Male');
-INSERT INTO EmployeeDemographics
-(EmployeeID,FirstName, LastName,Age,Gender) values (1002,'Pam','Beasely',30,'Female');
-INSERT INTO EmployeeDemographics
-(EmployeeID,FirstName, LastName,Age,Gender) values (1003,'Dwight','Schrute',29,'Male');
-INSERT INTO EmployeeDemographics
-(EmployeeID,FirstName, LastName,Age,Gender) values (1004,'Angela','Martin',31,'Female');
-INSERT INTO EmployeeDemographics
-(EmployeeID,FirstName, LastName,Age,Gender) values (1005,'Toby','Flenderson',32,'Male');
-INSERT INTO EmployeeDemographics
-(EmployeeID,FirstName, LastName,Age,Gender) values (1006,'Michael','Scott',35,'Male');
-INSERT INTO EmployeeDemographics
-(EmployeeID,FirstName, LastName,Age,Gender) values (1007,'Meredith','Palmer',32,'Female');
-INSERT INTO EmployeeDemographics
-(EmployeeID,FirstName, LastName,Age,Gender) values (1008,'Stanley','Hudson',38,'Male');
-INSERT INTO EmployeeDemographics
-(EmployeeID,FirstName, LastName,Age,Gender) values (1009,'Kevin','Malone',31,'Male');
+ -- Insert Data into EmployeeSalary table
 
--- Step 5: Insert Data into EmployeeSalary
 INSERT INTO EmployeeSalary
 (EmployeeID,JobTitle,Salary) values( 1001,'Salesman',45000);
 INSERT INTO EmployeeSalary
-(EmployeeID,JobTitle,Salary) values( 1002,'Receptionist',45000);
+(EmployeeID,JobTitle,Salary) values( 1002,'Receptionist',20000);  
 INSERT INTO EmployeeSalary
 (EmployeeID,JobTitle,Salary) values( 1003,'Salesman',45000);
 INSERT INTO EmployeeSalary
-(EmployeeID,JobTitle,Salary) values( 1004,'Accountant',45000);
+(EmployeeID,JobTitle,Salary) values( 1004,'Accountant',50000);
 INSERT INTO EmployeeSalary
-(EmployeeID,JobTitle,Salary) values( 1005,'HR',45000);
+(EmployeeID,JobTitle,Salary) values( 1005,'HR',37000);
 INSERT INTO EmployeeSalary
-(EmployeeID,JobTitle,Salary) values( 1006,'Regional Manager',45000);
+(EmployeeID,JobTitle,Salary) values( 1006,'Regional Manager',60000);
 INSERT INTO EmployeeSalary
-(EmployeeID,JobTitle,Salary) values( 1007,'Supplier Relations',45000);
+(EmployeeID,JobTitle,Salary) values( 1007,'Supplier Relations',35000);
 INSERT INTO EmployeeSalary
 (EmployeeID,JobTitle,Salary) values( 1008,'Salesman',45000);
 
--- Step 6: Query the Data
-SELECT * FROM EmployeeDemographics;
-SELECT * FROM EmployeeSalary;
 
--- (Optional) Clean-up commands if needed
--- DROP TABLE EmployeeDemographics;
--- DROP TABLE EmployeeSalary;
+CREATE TABLE Department(
+ DepartmentID int PRIMARY KEY, 
+ DepartmentName varchar(50)
+);
+
+-- Insert Data into Department table
+
+INSERT INTO Department
+VALUES(1, 'Sales');
+
+INSERT INTO Department
+VALUES(2,'Human Resources');
+
+INSERT INTO Department
+VALUES(3,'Accounting');
+
+INSERT INTO Department
+VALUES(4,'Manager');
+
+--Alter table EmployeeDemographics, Add Column Departmentiid
+ALTER TABLE EmployeeDemographics
+ADD COLUMN DepartmentID int;
+
+-- Assign Departments to Employees based on their Job Title
+
+UPDATE EmployeeDemographics
+SET DepartmentID = 1
+WHERE EmployeeID IN (1001,1003,1008);
+
+UPDATE EmployeeDemographics
+SET DepartmentID = 2
+WHERE EmployeeID IN (1005);
+
+UPDATE EmployeeDemographics 
+SET DepartmentID = 3
+WHERE EmployeeID IN (1002,1004,1007,1009)
+
+UPDATE EmployeeDemographics 
+SET DepartmentID = 4
+WHERE EmployeeID IN (1006)
+
+
+SELECT * FROM EmployeeDemographics
+SELECT * FROM EmployeeSalary 
+
