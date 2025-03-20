@@ -49,30 +49,7 @@ Build reporting dashboards using tools like Power BI or Tableau based on this da
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+SCRIPT:
 create database SQLTutorial
 
 CREATE TABLE EmployeeDemographics
