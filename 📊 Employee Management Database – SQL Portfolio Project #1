@@ -1,0 +1,75 @@
+Objective:
+Designed a simple Employee Management System using SQL, covering key operations:
+
+Database creation
+Table creation & deletion
+Data insertion
+Data querying
+
+Technologies Used:
+SQL (Standard SQL syntax)
+Relational Database Concepts
+
+-- Step 1: Create Database
+CREATE DATABASE SQLTutorial;
+
+-- Step 2: Create EmployeeDemographics Table
+CREATE TABLE EmployeeDemographics
+(EmployeeID int,
+FirstName varchar(50),
+LastName varchar(50),
+Age int,
+Gender varchar(50)
+)
+
+-- Step 3: Create EmployeeSalary Table
+CREATE TABLE EmployeeSalary
+(EmployeeID int,
+Jobtitle varchar(50),
+Salary int)
+
+-- Step 4: Insert Data into EmployeeDemographics
+INSERT INTO EmployeeDemographics
+(EmployeeID,FirstName, LastName,Age,Gender) values (1001,'Jim','Halpert',40,'Male');
+INSERT INTO EmployeeDemographics
+(EmployeeID,FirstName, LastName,Age,Gender) values (1002,'Pam','Beasely',30,'Female');
+INSERT INTO EmployeeDemographics
+(EmployeeID,FirstName, LastName,Age,Gender) values (1003,'Dwight','Schrute',29,'Male');
+INSERT INTO EmployeeDemographics
+(EmployeeID,FirstName, LastName,Age,Gender) values (1004,'Angela','Martin',31,'Female');
+INSERT INTO EmployeeDemographics
+(EmployeeID,FirstName, LastName,Age,Gender) values (1005,'Toby','Flenderson',32,'Male');
+INSERT INTO EmployeeDemographics
+(EmployeeID,FirstName, LastName,Age,Gender) values (1006,'Michael','Scott',35,'Male');
+INSERT INTO EmployeeDemographics
+(EmployeeID,FirstName, LastName,Age,Gender) values (1007,'Meredith','Palmer',32,'Female');
+INSERT INTO EmployeeDemographics
+(EmployeeID,FirstName, LastName,Age,Gender) values (1008,'Stanley','Hudson',38,'Male');
+INSERT INTO EmployeeDemographics
+(EmployeeID,FirstName, LastName,Age,Gender) values (1009,'Kevin','Malone',31,'Male');
+
+-- Step 5: Insert Data into EmployeeSalary
+INSERT INTO EmployeeSalary
+(EmployeeID,JobTitle,Salary) values( 1001,'Salesman',45000);
+INSERT INTO EmployeeSalary
+(EmployeeID,JobTitle,Salary) values( 1002,'Receptionist',45000);
+INSERT INTO EmployeeSalary
+(EmployeeID,JobTitle,Salary) values( 1003,'Salesman',45000);
+INSERT INTO EmployeeSalary
+(EmployeeID,JobTitle,Salary) values( 1004,'Accountant',45000);
+INSERT INTO EmployeeSalary
+(EmployeeID,JobTitle,Salary) values( 1005,'HR',45000);
+INSERT INTO EmployeeSalary
+(EmployeeID,JobTitle,Salary) values( 1006,'Regional Manager',45000);
+INSERT INTO EmployeeSalary
+(EmployeeID,JobTitle,Salary) values( 1007,'Supplier Relations',45000);
+INSERT INTO EmployeeSalary
+(EmployeeID,JobTitle,Salary) values( 1008,'Salesman',45000);
+
+-- Step 6: Query the Data
+SELECT * FROM EmployeeDemographics;
+SELECT * FROM EmployeeSalary;
+
+-- (Optional) Clean-up commands if needed
+-- DROP TABLE EmployeeDemographics;
+-- DROP TABLE EmployeeSalary;
